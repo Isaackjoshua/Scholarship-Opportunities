@@ -1,10 +1,10 @@
-// Handle opportunity submission form
+// Handle our submission form
 document.getElementById('submit-form').addEventListener('submit', async function (e) {
     e.preventDefault();
   
     const title = document.getElementById('opportunity-title').value;
     const description = document.getElementById('opportunity-description').value;
-    const messageElement = document.getElementById('submit-message'); // Display submission message
+    const messageElement = document.getElementById('submit-message'); // Display the submission message
   
     try {
       // Send a POST request to the server
@@ -19,7 +19,7 @@ document.getElementById('submit-form').addEventListener('submit', async function
       const result = await response.json();
   
       if (result.success) {
-        // If successful, show success message
+        // If successful,it will show success message
         messageElement.textContent = result.message;
         messageElement.style.color = 'green';
   
@@ -27,7 +27,7 @@ document.getElementById('submit-form').addEventListener('submit', async function
         document.getElementById('opportunity-title').value = '';
         document.getElementById('opportunity-description').value = '';
       } else {
-        // If failed, show error message
+        // If failed,then show the error message
         messageElement.textContent = result.message;
         messageElement.style.color = 'red';
       }

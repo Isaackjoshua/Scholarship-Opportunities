@@ -6,9 +6,9 @@ const cors = require('cors');
 const app = express();
 const PORT = 5000;
 
-// Middleware
+
 app.use(bodyParser.json());
-app.use(cors()); // Allowing frontend requests
+app.use(cors()); //frontend requests
 
 // admin password
 const ADMIN_PASSWORD_HASH = bcrypt.hashSync("IamAdmin123", 10); // this is my (admin)password
@@ -24,7 +24,7 @@ app.post('/login', (req, res) => {
   }
 });
 
-// Start server
+// Starting the  server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
@@ -38,7 +38,7 @@ app.post('/submit-opportunity', (req, res) => {
       });
     }
   
-    // Save the opportunity (for now, we can just log it)
+    // Save the opportunity.
     console.log("Opportunity Submitted:", { title, description });
   
     // Respond to the frontend
